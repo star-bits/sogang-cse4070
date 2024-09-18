@@ -1,2 +1,6 @@
-# sogang-cse4070
-운영체제 (김영재, 2024-2) 핀토스 프로젝트
+# OS
+
+```
+ssh cse20161277@cspro.sogang.ac.kr
+passwd
+```
