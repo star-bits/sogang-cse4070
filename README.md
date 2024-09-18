@@ -6,4 +6,6 @@ passwd
 logout
 
 (SFTP port number is 22)
+
+pintos -v -- -q run alarm-multiple
 ```
