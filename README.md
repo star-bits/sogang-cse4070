@@ -8,7 +8,6 @@ logout
 # SFTP port number is 22
 tar -xvzf pintos_modified.tar.gz
 
-# install QEMU
 vim ~/.bashrc
 # export PATH=/sogang/under/cse20161277/pintos/src/utils:$PATH
 source ~/.bashrc
@@ -17,7 +16,4 @@ cd ~/pintos/src/threads
 make
 
 ~/pintos/src/threads$ pintos -v -- -q run alarm-multiple
-```
-```shell
-
 ```
