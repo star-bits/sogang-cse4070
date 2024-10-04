@@ -17,3 +17,11 @@ make
 
 ~/pintos/src/threads$ pintos -v -- -q run alarm-multiple
 ```
+
+```shell
+~/pintos/src/examples$ make
+
+~/pintos/src/userprog$ make
+
+~/pintos/src/userprog$ pintos --filesys-size=2 -p ../examples/echo -a echo -- -f -q run 'echo x'
+```
