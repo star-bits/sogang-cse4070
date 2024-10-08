@@ -14,8 +14,7 @@ vim ~/.bashrc
 # export PATH=/sogang/under/cse20161277/pintos/src/utils:$PATH
 source ~/.bashrc
 
-cd ~/pintos/src/threads
-make
+~/pintos/src/threads$ make
 
 ~/pintos/src/threads$ pintos -v -- -q run alarm-multiple
 ```
@@ -62,5 +61,65 @@ Console: 820 characters output
 Keyboard: 0 keys pressed
 Exception: 0 page faults
 Powering off...
-cse20161277@cspro9:~/pintos/src/userprog$ 
 ```
+
+```shell
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'echo' into the file system...
+Erasing ustar archive...
+Executing 'echo x':
+echo x 
+echo: exit(0)
+Execution of 'echo x' complete.
+Timer: 62 ticks
+Thread: 2 idle ticks, 59 kernel ticks, 1 user ticks
+hda2 (filesys): 67 reads, 208 writes
+hda3 (scratch): 101 reads, 2 writes
+Console: 842 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+```
+
+```shell
+~/pintos/src/userprog$ pintos --filesys-size=2 -p ../examples/additional -a additional -- -f -q run 'additional 10 20 62 40'
+```
+
+```shell
+SeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiiLLoo  hhddaa1
+1
+LLooaaddiinngg.......................
+Kernel command line: -f -q extract run 'additional 10 20 62 40'
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  350,208,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 197 sectors (98 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 118 sectors (59 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'additional' into the file system...
+Erasing ustar archive...
+Executing 'additional 10 20 62 40':
+55 62
+additional: exit(0)
+Execution of 'additional 10 20 62 40' complete.
+Timer: 63 ticks
+Thread: 1 idle ticks, 61 kernel ticks, 1 user ticks
+hda2 (filesys): 63 reads, 240 writes
+hda3 (scratch): 117 reads, 2 writes
+Console: 900 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+```
+
