@@ -147,7 +147,7 @@ FAIL tests/filesys/base/syn-write
 [`compare_dirs.py`](https://gist.github.com/star-bits/3a9b88d246116ec9cf6f16b7250a95c6)
 
 ```
-Only in ./p1-src-h1:
+Only in ./p1-src-h5:
   src/examples/additional.c
 
 No unique files or folders in ./p1-src-sk
@@ -165,3 +165,5 @@ Files with the same name but different contents:
   src/userprog/syscall.c
   src/userprog/syscall.h
 ```
+
+
