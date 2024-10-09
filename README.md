@@ -46,7 +46,6 @@ cse20161277@cspro9:~/pintos/src/threads$
 ```
 
 ```shell
-Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch device into file system...
 Putting 'echo' into the file system...
@@ -64,7 +63,6 @@ Powering off...
 ```
 
 ```shell
-Formatting file system...done.
 Boot complete.
 Extracting ustar archive from scratch device into file system...
 Putting 'echo' into the file system...
@@ -123,3 +121,29 @@ Exception: 0 page faults
 Powering off...
 ```
 
+```shell
+~/pintos/src/userprog$ make check
+```
+
+[`compare_dirs.py`](https://gist.github.com/star-bits/3a9b88d246116ec9cf6f16b7250a95c6)
+
+```shell
+Only in ./p1-src-h1:
+  src/examples/additional.c
+
+No unique files or folders in ./p1-src-sk
+
+Files with the same name but different contents:
+  src/examples/Makefile
+  src/lib/syscall-nr.h
+  src/lib/user/syscall.c
+  src/lib/user/syscall.h
+  src/tests/userprog/Make.tests
+  src/threads/thread.c
+  src/threads/thread.h
+  src/userprog/exception.c
+  src/userprog/process.c
+  src/userprog/process.h
+  src/userprog/syscall.c
+  src/userprog/syscall.h
+```
