@@ -2,7 +2,7 @@
 
 ## 프로젝트 0
 
-```shell
+```
 ssh cse20161277@cspro9.sogang.ac.kr
 passwd
 logout
@@ -19,7 +19,7 @@ source ~/.bashrc
 ~/pintos/src/threads$ pintos -v -- -q run alarm-multiple
 ```
 
-```shell
+```
 (alarm-multiple) thread 3: duration=40, iteration=6, product=240
 (alarm-multiple) thread 4: duration=50, iteration=5, product=250
 (alarm-multiple) thread 3: duration=40, iteration=7, product=280
@@ -37,7 +37,7 @@ cse20161277@cspro9:~/pintos/src/threads$
 
 ## 프로젝트 1
 
-```shell
+```
 ~/pintos/src/examples$ make
 
 ~/pintos/src/userprog$ make
@@ -45,7 +45,7 @@ cse20161277@cspro9:~/pintos/src/threads$
 ~/pintos/src/userprog$ pintos --filesys-size=2 -p ../examples/echo -a echo -- -f -q run 'echo x'
 ```
 
-```shell
+```
 Boot complete.
 Extracting ustar archive from scratch device into file system...
 Putting 'echo' into the file system...
@@ -62,7 +62,7 @@ Exception: 0 page faults
 Powering off...
 ```
 
-```shell
+```
 Boot complete.
 Extracting ustar archive from scratch device into file system...
 Putting 'echo' into the file system...
@@ -81,11 +81,11 @@ Exception: 0 page faults
 Powering off...
 ```
 
-```shell
+```
 ~/pintos/src/userprog$ pintos --filesys-size=2 -p ../examples/additional -a additional -- -f -q run 'additional 10 20 62 40'
 ```
 
-```shell
+```
 SeaBIOS (version 1.13.0-1ubuntu1.1)
 Booting from Hard Disk...
 PPiiLLoo  hhddaa1
@@ -121,13 +121,32 @@ Exception: 0 page faults
 Powering off...
 ```
 
-```shell
+```
 ~/pintos/src/userprog$ make check
+```
+
+```
+FAIL tests/userprog/bad-jump2
+FAIL tests/userprog/no-vm/multi-oom
+FAIL tests/filesys/base/lg-create
+FAIL tests/filesys/base/lg-full
+FAIL tests/filesys/base/lg-random
+FAIL tests/filesys/base/lg-seq-block
+FAIL tests/filesys/base/lg-seq-random
+FAIL tests/filesys/base/sm-create
+FAIL tests/filesys/base/sm-full
+FAIL tests/filesys/base/sm-random
+FAIL tests/filesys/base/sm-seq-block
+FAIL tests/filesys/base/sm-seq-random
+FAIL tests/filesys/base/syn-read
+FAIL tests/filesys/base/syn-remove
+FAIL tests/filesys/base/syn-write
+60 of 80 tests failed.
 ```
 
 [`compare_dirs.py`](https://gist.github.com/star-bits/3a9b88d246116ec9cf6f16b7250a95c6)
 
-```shell
+```
 Only in ./p1-src-h1:
   src/examples/additional.c
 
@@ -138,7 +157,6 @@ Files with the same name but different contents:
   src/lib/syscall-nr.h
   src/lib/user/syscall.c
   src/lib/user/syscall.h
-  src/tests/userprog/Make.tests
   src/threads/thread.c
   src/threads/thread.h
   src/userprog/exception.c
