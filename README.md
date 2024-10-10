@@ -51,23 +51,6 @@ Extracting ustar archive from scratch device into file system...
 Putting 'echo' into the file system...
 Erasing ustar archive...
 Executing 'echo x':
-Execution of 'echo x' complete.
-Timer: 67 ticks
-Thread: 2 idle ticks, 65 kernel ticks, 0 user ticks
-hda2 (filesys): 26 reads, 208 writes
-hda3 (scratch): 101 reads, 2 writes
-Console: 820 characters output
-Keyboard: 0 keys pressed
-Exception: 0 page faults
-Powering off...
-```
-
-```
-Boot complete.
-Extracting ustar archive from scratch device into file system...
-Putting 'echo' into the file system...
-Erasing ustar archive...
-Executing 'echo x':
 echo x 
 echo: exit(0)
 Execution of 'echo x' complete.
