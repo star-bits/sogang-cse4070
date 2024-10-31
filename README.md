@@ -149,4 +149,106 @@ Files with the same name but different contents:
   src/userprog/syscall.h
 ```
 
+## 프로젝트 2
 
+### 전체:
+```
+process_execute()
+    ↓
+thread_create()
+    ↓
+sema_down(&parent->file_semaphore)   ← 부모 프로세스가 대기 상태로 바뀜
+    ↓
+start_process()
+    ↓
+load()
+    ↓
+setup_stack()
+    ↓
+push_arguments_to_stack()
+    ↓
+thread_init()
+    ↓
+file_descriptor 배열 초기화 (file_descriptor[128] = {NULL})
+    ↓
+load 성공 
+    ↓
+sema_up(&parent->file_semaphore)   ← 자식 프로세스가 부모 프로세스에게 신호
+    ↓
+parent process_execute가 sema_up 신호를 받고 대기 상태에서 깨어남
+    ↓
+process_wait()
+    ↓
+user program 실행
+    ↓
+user program에서 syscall 호출 
+    ↓
+syscall_handler()
+    ↓
+파일 관련 작업 처리
+    │
+    ├─ lock_acquire(&file_lock)
+    │
+    ├─ 파일 작업 수행 (open, read, write)
+    │
+    ├─ lock_release(&file_lock)
+    │
+    └─ 작업 결과 반환 및 사용자 레벨로 복귀
+    ↓
+user program 실행 이어짐
+```
+
+### 1. File descriptor:
+```
+thread_create()
+    ↓
+thread_init()
+    ↓
+file_descriptor[128] = {NULL}
+    ↓
+파일 작업 시:
+    ├─ open(): 가용 fd 찾아 할당
+    ├─ read/write(): fd로 파일 접근
+    └─ close(): fd를 NULL로 초기화
+    ↓
+process_exit()
+    ↓
+모든 fd 정리
+```
+
+### 2. System call:
+```
+user program에서 syscall 호출 
+    ↓
+syscall_handler()
+    ↓
+파일 관련 작업 처리
+    ├─ create(): 파일 생성
+    ├─ open(): fd 할당
+    ├─ read/write(): 파일 입출력
+    └─ close(): fd 해제
+    ↓
+작업 결과 반환
+```
+
+### 3-1. Synchronization - semaphore (프로세스)
+```
+process_execute()
+    ↓
+sema_down(&parent->file_semaphore)   ← 부모 대기
+    ↓
+load()
+    ↓
+sema_up(&parent->file_semaphore)     ← 자식 신호
+```
+
+### 3-2. Synchronization - lock (파일)
+```
+syscall_handler()
+    ↓
+lock_acquire(&file_lock)
+    ↓
+파일 작업 수행
+    ↓
+lock_release(&file_lock)
+```
