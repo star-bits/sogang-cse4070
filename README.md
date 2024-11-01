@@ -130,10 +130,10 @@ FAIL tests/filesys/base/syn-write
 [`compare_dirs.py`](https://gist.github.com/star-bits/3a9b88d246116ec9cf6f16b7250a95c6)
 
 ```
-Only in ./prj1-src-h5:
+Only in ./src-h5-prj1:
   src/examples/additional.c
 
-No unique files or folders in ./prj1-src-sk
+No unique files or folders in ./src-sk
 
 Files with the same name but different contents:
   src/examples/Makefile
@@ -150,6 +150,11 @@ Files with the same name but different contents:
 ```
 
 ## 프로젝트 2
+```
+python compare_dirs.py src-h5-prj2 src-h5-prj1
+python compare_dirs.py src-h5-prj2 src-sk
+cd src-wb
+```
 
 ### 전체:
 ```
