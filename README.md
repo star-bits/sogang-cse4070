@@ -257,3 +257,8 @@ lock_acquire(&file_lock)
     ↓
 lock_release(&file_lock)
 ```
+
+## 프로젝트 3
+```
+~/pintos/src/threads$ pintos -v -- -q run priority-lifo
+```
